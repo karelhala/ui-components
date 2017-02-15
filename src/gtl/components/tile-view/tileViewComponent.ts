@@ -86,6 +86,11 @@ export class TileViewController extends DataViewClass implements IDataTableBindi
       });
     }
 
+    if (changesObj.settings) {
+      this.options.showSelectBox = !this.settings.hideSelect;
+    }
+    console.log(this);
+
     this.setPagingNumbers();
   }
 
@@ -96,7 +101,9 @@ export class TileViewController extends DataViewClass implements IDataTableBindi
    * @param item which tile was clicked.
    */
   public onTileClick(item) {
-    this.onItemSelected({item: item, isSelected: !item.selected});
+    if (!this.settings.hideSelect) {
+      this.onItemSelected({item: item, isSelected: !item.selected});
+    }
   }
 
   public onTileSelect(item) {
