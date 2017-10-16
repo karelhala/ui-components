@@ -26,6 +26,7 @@ const webpack = require('webpack'),
     new BrowserSyncPlugin({
       host: 'localhost',
       port: 4000,
+      open: false,
       server: {baseDir: [__dirname + settings.distFolder]},
       middleware: [
         {
